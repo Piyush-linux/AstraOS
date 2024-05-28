@@ -4,6 +4,9 @@
 - popup: https://lusaxweb.github.io/vuesax/components/popup.html
 - TechStack: Nuxt, Tailwind, ShepherdJS, 
 
+
+![](/docs/ss.png)
+
 ### IDEAS
 
 1. Feedback Form
