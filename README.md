@@ -1,4 +1,9 @@
-# Linux WM
+<div align="center">
+	<img width="300px" src="/logo.png" />
+</div>
+
+# Astra OS 
+- An Web Linux WM
 - UI : https://i.pinimg.com/736x/87/3b/b7/873bb76870c5831b3db734cfbf7cf165.jpg
 - Color: https://colorhunt.co/palette/0c2d57fc6736ffb0b0efecec
 - popup: https://lusaxweb.github.io/vuesax/components/popup.html
@@ -37,4 +42,5 @@ bun run preview
 ### Roadmap
 - [X] UI: Profile
 - [X] UI: Music
-- [ ] UI: Terminal
+- [x] UI: Terminal
+- [ ] UI: Matrix Effect
