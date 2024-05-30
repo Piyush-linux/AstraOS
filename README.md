@@ -28,6 +28,9 @@
 
 ## Setup
 
+- Node : 18.x
+- bun : 1.2.x
+
 ```sh
 bun install
 bun run dev

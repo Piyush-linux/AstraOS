@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div id="main" class="grid-span-10 w-[90vw] flex justify-center items-center">
+        <div id="main" class="grid-span-10 w-[90vw] flex flex-col justify-center items-center">
             <div class="main-wrapper w-full h-full flex p-10 space-x-10">
                 
                 <!-- profile -->
@@ -39,6 +39,10 @@
                 <Music/>
                 <Terminal/>
 
+            </div>
+            <div class="h-full w-full pb-10 flex px-10 space-x-10">
+                <Matrix/>
+                <div class="bg-pink-300 w-full h-full ">Base</div>
             </div>
         </div>
 

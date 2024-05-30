@@ -1,5 +1,5 @@
 <template>
-    <div class="terminal w-full h-1/2 opacity-[.8]">
+    <div class="terminal w-full h-full opacity-[.8]">
         <div class="terminal-wrapper w-full h-full bg-gray-900 rounded-xl grid grid-cols-6">
             <!--  -->
             <div class="col-span-2 w-full h-full">
@@ -9,7 +9,7 @@
             </div>
             <div class="col-span-4 w-full text-xs p-8 f2">
                 <div class="text-white mb-4">
-                    <span class="text-emerald-200">zen</span>@<span class="text-purple-300">archcraft</span>
+                    <span class="text-emerald-200">piyush</span>@<span class="text-purple-300">linux</span>
                     <!-- <hr class="my-3"> -->
                 </div>
                 <ul class="space-y-3 border-2 border-gray-300 p-4 rounded-xl">
@@ -17,7 +17,7 @@
                     <li class="flex items-center space-x-3">
                         <Icon name="material-symbols:settings-heart-rounded" color="#AD88C6" class="text-xl" />
                         <span class="text-white">
-                            Arch Linux
+                            Astra OS
                         </span>
                     </li>
                     <li class="flex items-center space-x-3">
