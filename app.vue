@@ -11,22 +11,22 @@
         <!-- sidebar -->
         <div id="sidebar" class="grid-span-2 h-screen">
             <div class="bg-gray-900 m-6 rounded-xl text-white h-fit flex items-center flex-col space-y-10 py-10">
-                <div class="">
+                <div class="" ref="btn_power">
                     <Icon name="clarity:power-solid" color="#D20062"  class="text-5xl border-2 border-gray-500 rounded-full p-2" />
                 </div>
-                <div class="">
+                <div class="" ref="btn_wifi">
                     <Icon name="material-symbols:network-wifi" color="#F3CA52"  class="text-5xl border-2 border-gray-500 rounded-full p-2" />
                 </div>
-                <div class="">
+                <div class="" ref="btn_sound">
                     <Icon name="material-symbols:sound-sampler-rounded" color="#90D26D"  class="text-5xl border-2 border-gray-500 rounded-full p-2" />
                 </div>
-                <div class="">
+                <div class="" ref="btn_battery">
                     <Icon name="ic:baseline-battery-80" color="#FFF7FC"  class="text-5xl border-2 border-gray-500 rounded-full p-2" />
                 </div>
-                <div class="">
+                <div class="" ref="btn_bluetooth">
                     <Icon name="solar:bluetooth-circle-broken" color="#7AA2E3"  class="text-5xl border-2 border-gray-500 rounded-full p-2" />
                 </div>
-                <div class="">
+                <div class="" ref="btn_app">
                     <Icon name="streamline:interface-dashboard-layout-3-app-application-dashboard-home-layout" color="#C738BD"  class="text-5xl border-2 border-gray-500 rounded-full p-2" />
                 </div>
             </div>
@@ -54,42 +54,150 @@
 
 </template>
 <script setup>
-// import { ref, onMounted } from 'vue'
-// import { useShepherd } from 'vue-shepherd'
+import { ref, onMounted } from 'vue'
+import { useShepherd } from 'vue-shepherd'
 
-// const el = ref(null);
+const btn_power = ref(null);
+const btn_sound = ref(null);
+const btn_wifi = ref(null);
+const btn_app = ref(null);
+const btn_battery = ref(null);
+const btn_bluetooth = ref(null);
 
 
 
-// const tour = useShepherd({
-//     useModalOverlay: true,
-//     defaultStepOptions: {
-//         scrollTo: true
-//     }
-// });
+const tour = useShepherd({
+    useModalOverlay: true,
+    defaultStepOptions: {
+        scrollTo: true,
+        exitOnEsc: true
+    }
 
-// onMounted(() => {
-//     tour.addStep({
-//         id: 'example-step',
-//         text: 'This step is attached to the bottom of the <code>.example-css-selector</code> element.',
-//         attachTo: {
-//             element: el.value,
-//             on: 'bottom'
-//         },
-//         classes: 'step1',
-//         buttons: [{
-//             text: 'Exit',
-//             classes: 'step1-btn2',
-//             action: tour.next
-//         },{
-//             text: 'Next',
-//             classes: 'step1-btn1',
-//             action: tour.next
-//         }]
-//     });
+});
 
-//     tour.start();
-// });
+onMounted(() => {
+    // Tour-Power
+    tour.addStep({
+        id: 'example-step',
+        text: 'Linux power button, your gateway to seamless system management 💜',
+        attachTo: {
+            element: btn_power.value,
+            on: 'right'
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Exit',
+            classes: 'step1-btn2',
+            action: tour.next
+        },{
+            text: 'Next',
+            classes: 'step1-btn1',
+            action: tour.next
+        }]
+    });
+
+    // Tour-Wifi
+    tour.addStep({
+        id: 'example-step',
+        text: 'Wifi power button, your gateway to seamless system management 💜',
+        attachTo: {
+            element: btn_wifi.value,
+            on: 'right'
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Exit',
+            classes: 'step1-btn2',
+            action: tour.next
+        },{
+            text: 'Next',
+            classes: 'step1-btn1',
+            action: tour.exit
+        }]
+    });
+
+     // Tour-Sound
+    tour.addStep({
+        id: 'example-step',
+        text: 'Wifi power button, your gateway to seamless system management 💜',
+        attachTo: {
+            element: btn_sound.value,
+            on: 'right'
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Exit',
+            classes: 'step1-btn2',
+            action: tour.next
+        },{
+            text: 'Next',
+            classes: 'step1-btn1',
+            action: tour.next
+        }]
+    });
+
+    // Tour-Battery
+    tour.addStep({
+        id: 'example-step',
+        text: 'Wifi power button, your gateway to seamless system management 💜',
+        attachTo: {
+            element: btn_battery.value,
+            on: 'right'
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Exit',
+            classes: 'step1-btn2',
+            action: tour.next
+        },{
+            text: 'Next',
+            classes: 'step1-btn1',
+            action: tour.next
+        }]
+    });
+
+     // Tour-Bluetooth
+    tour.addStep({
+        id: 'example-step',
+        text: 'Wifi power button, your gateway to seamless system management 💜',
+        attachTo: {
+            element: btn_bluetooth.value,
+            on: 'right'
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Exit',
+            classes: 'step1-btn2',
+            action: tour.next
+        },{
+            text: 'Next',
+            classes: 'step1-btn1',
+            action: tour.next
+        }]
+    });
+
+    // Tour-App
+    tour.addStep({
+        id: 'example-step',
+        text: 'App power button, your gateway to seamless system management 💜',
+        attachTo: {
+            element: btn_app.value,
+            on: 'right'
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Exit',
+            classes: 'step1-btn2',
+            action: tour.next
+        },{
+            text: 'Next',
+            classes: 'step1-btn1',
+            action: tour.next
+        }]
+    });
+
+    tour.start();
+});
 </script>
 <style>
 #linux{
@@ -101,9 +209,9 @@
     background-image: url("/bg.jpg");
 }
 
-.shepherd-arrow {
+/*.shepherd-arrow {
     display: none;
-}
+}*/
 
 .example-step-extra-class {
     border: 2px solid black;
@@ -115,7 +223,7 @@
 }
 
 .step1 #example-step-description {
-    color: #FC6736;
+    color: #1E0342;
     padding:2em;
 }
 
@@ -140,7 +248,7 @@
 }
 
 .step1 .shepherd-button:hover{
-  background-color:#FC6736;
+  background-color:#86469C;
   color:white;
 }
 
