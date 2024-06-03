@@ -39,16 +39,28 @@
             <div class="main-wrapper w-full h-full flex p-10 space-x-10">
                 
                 <!-- profile -->
-                <Profile/>
-                <Music/>
-                <Pfetch/>
+                <div ref="comp_profile" class="w-1/3 h-full">
+                    <Profile  />
+                </div>
+                <div class="" ref="comp_music">
+                    <Music  />
+                </div>
+                <div class="w-full" ref="comp_pfetch">
+                    <Pfetch/>
+                </div>
 
             </div>
             <div class="h-full w-full pb-10 flex px-10 space-x-10">
-                <Matrix/>
-                <Editor/>
+                <div class="w-full" ref="comp_matrix">
+                    <Matrix/>
+                </div>
+                <div class="w-full" ref="comp_notepad">
+                    <Notepad/>
+                </div>
                 <!-- <Terminal/> -->
-                <div class=" w-full h-full ">Base</div>
+                <div class=" w-full h-full " ref="comp_gallery">
+                    <Gallery/>
+                </div>
             </div>
         </div>
 
@@ -71,11 +83,6 @@ const btn_app = ref(null);
 const btn_battery = ref(null);
 const btn_bluetooth = ref(null);
 
-const comp_profile = ref(null);
-const comp_music = ref(null);
-const comp_pfetch = ref(null);
-const comp_matrix = ref(null);
-const comp_notepad = ref(null);
 
 
 let d = new Date();
@@ -87,16 +94,22 @@ const tour = useShepherd({
         scrollTo: true,
         exitOnEsc: true
     }
-
 });
 
+
+    const comp_profile = ref(null);
+    const comp_music = ref(null);
+    const comp_pfetch = ref(null);
+    const comp_matrix = ref(null);
+    const comp_notepad = ref(null);
+    const comp_gallery = ref(null);
 
 onMounted(() => {
 
     // Tour-Power
     tour.addStep({
         id: 'example-step',
-        text: 'Linux power button, your gateway to seamless system management 💜',
+        text: 'Button initiates power management actions like shutting down or restarting the system ❤️',
         attachTo: {
             element: btn_power.value,
             on: 'right'
@@ -112,7 +125,7 @@ onMounted(() => {
     // Tour-Wifi
     tour.addStep({
         id: 'example-step',
-        text: 'Wifi power button, your gateway to seamless system management 💜',
+        text: "WiFi button should toggle the device's WiFi connection on or off 💛",
         attachTo: {
             element: btn_wifi.value,
             on: 'right'
@@ -132,7 +145,7 @@ onMounted(() => {
      // Tour-Sound
     tour.addStep({
         id: 'example-step',
-        text: 'Wifi power button, your gateway to seamless system management 💜',
+        text: 'button should visually indicate the current state of sound enabled or muted 💚',
         attachTo: {
             element: btn_sound.value,
             on: 'right'
@@ -152,7 +165,7 @@ onMounted(() => {
     // Tour-Battery
     tour.addStep({
         id: 'example-step',
-        text: 'Wifi power button, your gateway to seamless system management 💜',
+        text: ' provide users with essential information about their battery status 🤍',
         attachTo: {
             element: btn_battery.value,
             on: 'right'
@@ -172,7 +185,7 @@ onMounted(() => {
      // Tour-Bluetooth
     tour.addStep({
         id: 'example-step',
-        text: 'Wifi power button, your gateway to seamless system management 💜',
+        text: 'Toggle the Bluetooth connection on or off 🩵',
         attachTo: {
             element: btn_bluetooth.value,
             on: 'right'
@@ -192,7 +205,7 @@ onMounted(() => {
     // Tour-App
     tour.addStep({
         id: 'example-step',
-        text: 'App power button, your gateway to seamless system management 💜',
+        text: 'It provides a quick and easy way to find and start the programs 💜',
         attachTo: {
             element: btn_app.value,
             on: 'right'
@@ -205,6 +218,122 @@ onMounted(() => {
         },{
             text: 'Next',
             classes: 'step1-btn1',
+            action: tour.next
+        }]
+    });
+
+    // Tour-Profile
+    tour.addStep({
+        id: 'example-step',
+        text: 'To display a brief summary of profile information 😄',
+        attachTo: {
+            element: comp_profile.value,
+            on: 'right'
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Back',
+            classes: 'step1-btn2',
+            action: tour.back
+        },{
+            text: 'Next',
+            classes: 'step1-btn1',
+            action: tour.next
+        }]
+    });
+
+    // Tour-Music
+    tour.addStep({
+        id: 'example-step',
+        text: 'Your music taste reflects your personality and interests (Play the music) 🎺',
+        attachTo: {
+            element: comp_music.value,
+            on: 'right'
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Back',
+            classes: 'step1-btn2',
+            action: tour.back
+        },{
+            text: 'Next',
+            classes: 'step1-btn1',
+            action: tour.next
+        }]
+    });
+
+    // Tour-Pfetch
+    tour.addStep({
+        id: 'example-step',
+        text: 'Neofetch-inspired profile card design 🚀',
+        attachTo: {
+            element: comp_pfetch.value,
+            on: 'left'
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Back',
+            classes: 'step1-btn2',
+            action: tour.back
+        },{
+            text: 'Next',
+            classes: 'step1-btn1',
+            action: tour.next
+        }]
+    });
+
+    // Tour-matrix
+    tour.addStep({
+        id: 'example-step',
+        text: 'mimics the retro-style terminal interface ⛆',
+        attachTo: {
+            element: comp_matrix.value,
+            on: 'top'
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Back',
+            classes: 'step1-btn2',
+            action: tour.back
+        },{
+            text: 'Next',
+            classes: 'step1-btn1',
+            action: tour.next
+        }]
+    });
+
+    // Tour-Pfetch
+    tour.addStep({
+        id: 'example-step',
+        text: 'Write your thoughts 🗒️',
+        attachTo: {
+            element: comp_notepad.value,
+            on: 'top'
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Back',
+            classes: 'step1-btn2',
+            action: tour.back
+        },{
+            text: 'Next',
+            classes: 'step1-btn1',
+            action: tour.next
+        }]
+    });
+
+    // Tour-Pfetch
+    tour.addStep({
+        id: 'example-step',
+        text: 'I love Cats 😽',
+        attachTo: {
+            element: comp_gallery.value,
+            on: 'top'
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Done',
+            classes: 'step1-btn2',
             action: tour.next
         }]
     });

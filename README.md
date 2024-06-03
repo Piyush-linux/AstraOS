@@ -28,16 +28,24 @@ bun run preview
 
 - Colors : https://colorhunt.co/palette/0c2d57fc6736ffb0b0efecec
 
-### Roadmap
+## Roadmap
+
+__v1__
 - [X] UI: Profile
 - [X] UI: Music
 - [x] UI: Terminal
 - [x] UI: Matrix Effect
 - [x] UI: Glassmorphism
-- [ ] Github: workflow for deploy
-- [ ] UI: Installation Comp
-- [ ] UI: Notification Sys
+- [x] UI: Gallery Comp
+- [x] Github: workflow for deploy
 
+__v2__
+- [ ] UI: Notificarion/Toast  
+- [ ] UI: Popup Menu 
+- [ ] Event: Power btn 
+- [ ] Event: Wifi btn
+- [ ] Event: Bluetooth btn
+- [ ] Event: Application btn
 
 ### IDEAS
 2. (Retro Theme) : Linux ...

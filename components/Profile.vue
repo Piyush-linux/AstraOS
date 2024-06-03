@@ -1,5 +1,5 @@
 <template>
-    <div class="profile f1 w-1/3 h-full">
+    <div class="profile f1 w-full h-full">
         <div class="max-w-sm opacity-[.8] h-full">
             <div class="rounded-lg border bg-gray-900 px-8 py-8 pb-10 space-y-6 shadow-xl border-none h-full flex flex-col items-center justify-center">
                 <div class="relative mx-auto w-36 rounded-full">
