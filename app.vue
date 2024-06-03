@@ -106,6 +106,7 @@ const tour = useShepherd({
 
 onMounted(() => {
 
+
     // Tour-Power
     tour.addStep({
         id: 'example-step',
