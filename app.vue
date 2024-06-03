@@ -209,7 +209,7 @@ onMounted(() => {
         }]
     });
 
-    // tour.start();
+    tour.start();
 });
 </script>
 
@@ -232,7 +232,7 @@ onMounted(() => {
      background-repeat: no-repeat;
       background-size: cover; 
        background-position: center;
-    background-image: url("/bg.jpg");
+    background-image: url("/astraos/bg.jpg");
 }
 
 /*.shepherd-arrow {

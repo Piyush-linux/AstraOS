@@ -13,7 +13,8 @@
            progress.value.value = song.value.currentTime
         }
         
-        if(song.value.play()){
+        if(songState.value){
+            song.value.play()
             setInterval(()=>{
                 progress.value.value = song.value.currentTime ;
             },500);
