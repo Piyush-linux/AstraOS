@@ -11,10 +11,14 @@
         <!-- sidebar -->
         <div id="sidebar" class="grid-span-2 h-screen">
             <div class="bg-gray-900 m-6 rounded-xl text-white h-fit flex items-center flex-col space-y-10 py-10">
+                <div ref="time" class="text-white border-2 border-gray-100 p-3 rounded-xl">
+                    <span> {{ d.getHours() }} : {{d.getMinutes()}} </span>
+                    <!-- <Icon name="clarity:power-solid" color="#D20062"  class="text-5xl border-2 border-gray-500 rounded-full p-2" /> -->
+                </div>
                 <div class="" ref="btn_power">
                     <Icon name="clarity:power-solid" color="#D20062"  class="text-5xl border-2 border-gray-500 rounded-full p-2" />
                 </div>
-                <div class="" ref="btn_wifi">
+                <div class="btn_wifi" ref="btn_wifi">
                     <Icon name="material-symbols:network-wifi" color="#F3CA52"  class="text-5xl border-2 border-gray-500 rounded-full p-2" />
                 </div>
                 <div class="" ref="btn_sound">
@@ -37,12 +41,14 @@
                 <!-- profile -->
                 <Profile/>
                 <Music/>
-                <Terminal/>
+                <Pfetch/>
 
             </div>
             <div class="h-full w-full pb-10 flex px-10 space-x-10">
                 <Matrix/>
-                <div class="bg-pink-300 w-full h-full ">Base</div>
+                <Editor/>
+                <!-- <Terminal/> -->
+                <div class=" w-full h-full ">Base</div>
             </div>
         </div>
 
@@ -54,6 +60,7 @@
 
 </template>
 <script setup>
+
 import { ref, onMounted } from 'vue'
 import { useShepherd } from 'vue-shepherd'
 
@@ -64,6 +71,14 @@ const btn_app = ref(null);
 const btn_battery = ref(null);
 const btn_bluetooth = ref(null);
 
+const comp_profile = ref(null);
+const comp_music = ref(null);
+const comp_pfetch = ref(null);
+const comp_matrix = ref(null);
+const comp_notepad = ref(null);
+
+
+let d = new Date();
 
 
 const tour = useShepherd({
@@ -75,7 +90,9 @@ const tour = useShepherd({
 
 });
 
+
 onMounted(() => {
+
     // Tour-Power
     tour.addStep({
         id: 'example-step',
@@ -86,10 +103,6 @@ onMounted(() => {
         },
         classes: 'step1',
         buttons: [{
-            text: 'Exit',
-            classes: 'step1-btn2',
-            action: tour.next
-        },{
             text: 'Next',
             classes: 'step1-btn1',
             action: tour.next
@@ -106,13 +119,13 @@ onMounted(() => {
         },
         classes: 'step1',
         buttons: [{
-            text: 'Exit',
+            text: 'Back',
             classes: 'step1-btn2',
-            action: tour.next
+            action: tour.back
         },{
             text: 'Next',
             classes: 'step1-btn1',
-            action: tour.exit
+            action: tour.next
         }]
     });
 
@@ -126,9 +139,9 @@ onMounted(() => {
         },
         classes: 'step1',
         buttons: [{
-            text: 'Exit',
+            text: 'Back',
             classes: 'step1-btn2',
-            action: tour.next
+            action: tour.back
         },{
             text: 'Next',
             classes: 'step1-btn1',
@@ -146,9 +159,9 @@ onMounted(() => {
         },
         classes: 'step1',
         buttons: [{
-            text: 'Exit',
+            text: 'Back',
             classes: 'step1-btn2',
-            action: tour.next
+            action: tour.back
         },{
             text: 'Next',
             classes: 'step1-btn1',
@@ -166,9 +179,9 @@ onMounted(() => {
         },
         classes: 'step1',
         buttons: [{
-            text: 'Exit',
+            text: 'Back',
             classes: 'step1-btn2',
-            action: tour.next
+            action: tour.back
         },{
             text: 'Next',
             classes: 'step1-btn1',
@@ -186,9 +199,9 @@ onMounted(() => {
         },
         classes: 'step1',
         buttons: [{
-            text: 'Exit',
+            text: 'Back',
             classes: 'step1-btn2',
-            action: tour.next
+            action: tour.back
         },{
             text: 'Next',
             classes: 'step1-btn1',
@@ -196,10 +209,23 @@ onMounted(() => {
         }]
     });
 
-    tour.start();
+    // tour.start();
 });
 </script>
+
 <style>
+.glass{
+	background-color: transparent;
+	backdrop-filter: blur(20px);
+	background-image: linear-gradient(
+		120deg,
+    rgba(255,255,255,.2),rgba(1,2,1,.5)
+        /* rgba(255,255,255,.6) , */
+	    /* rgba(1,1,1,.7) , */
+	);
+}
+
+
 #linux{
     width:100vw;
     height: 100vh;
@@ -218,8 +244,9 @@ onMounted(() => {
 }
 
 .step1{
-  border: 4px solid black;
+  border: 4px solid #151515;
   margin-top: 1rem;
+  border-radius: 10px;
 }
 
 .step1 #example-step-description {
@@ -233,12 +260,13 @@ onMounted(() => {
   justify-content:end;
   padding: 0;
   border-radius:0;
+  border-radius: 0 0 10px 10px;
 }
 
 .step1 .shepherd-button{
   width: 50%;
   border-top:4px solid #0C2D57;
-  border-radius: 0;
+  
   display:flex;
   flex-grow: 1;
   justify-content: center;
@@ -257,5 +285,10 @@ onMounted(() => {
 }
 .step1 .step1-btn2{
   border-right: 2px solid #0C2D57;
+}
+
+.btn_wifi{
+    animation: bounce;
+    animation-duration: 3s;
 }
 </style>

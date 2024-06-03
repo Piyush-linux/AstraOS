@@ -21,7 +21,13 @@
                         </span>
                     </li>
                     <li class="flex items-center space-x-3">
-                        <Icon name="material-symbols:terminal-rounded" color="#FF6500" class="text-xl" />
+                        <Icon name="material-symbols:computer-outline-rounded" color="#FF5580" class="text-xl" />
+                        <span class="text-white">
+                            GNU Book
+                        </span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <Icon name="material-symbols:terminal-rounded" color="#E6FF94" class="text-xl" />
                         <span class="text-white">
                             alacritty
                         </span>
@@ -51,13 +57,17 @@
                         </span>
                     </li>
                     <li class="flex items-center space-x-3">
+                        <Icon name="material-symbols:pie-chart-outline" color="#FF7D29" class="text-xl" />
+                        <span class="text-white">
+                            4275MiB / 7680MiB
+                        </span>
+                    </li>
+                    <li class="flex items-center space-x-3">
                         <Icon name="material-symbols:familiar-face-and-zone-rounded" color="#F1E5D1" class="text-xl" />
                         <span class="text-white">
                             Piyush
                         </span>
                     </li>
-                    <li>jasdkjas</li>
-                    <li>jasdkjas</li>
                 </ul>
             </div>
         </div>

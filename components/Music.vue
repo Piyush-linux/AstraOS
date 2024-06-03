@@ -49,7 +49,7 @@
                 <!-- Song Title -->
                 <h2 class="text-xl font-semibold text-center text-[#FFE6E6]">wfm</h2>
                 <!-- Artist Name -->
-                <p class="text-gray-600 text-sm text-center text-[#7469B6]">RealestK</p>
+                <p class="text-sm text-center text-[#7469B6]">RealestK</p>
                 <!-- Music Controls -->
                 <div class="mt-6 flex justify-center items-center">
                     <!-- prev -->

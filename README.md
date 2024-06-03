@@ -33,8 +33,10 @@ bun run preview
 - [X] UI: Music
 - [x] UI: Terminal
 - [x] UI: Matrix Effect
-- [ ] UI: Glassmorphism
+- [x] UI: Glassmorphism
 - [ ] Github: workflow for deploy
+- [ ] UI: Installation Comp
+- [ ] UI: Notification Sys
 
 
 ### IDEAS

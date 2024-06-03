@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   css: ['~/assets/shepherd.css'],
   modules: [
     '@nuxtjs/tailwindcss',
-    'nuxt-icon'
-  ]
+    'nuxt-icon',
+  ],
+  
 })
