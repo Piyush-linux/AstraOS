@@ -2,7 +2,7 @@
 	<img width="300px" src="/docs/logo.png" />
 </div>
 
-![](/docs/ss.png)
+![](/docs/s1.png)
 
 # Astra OS 🔮
 
