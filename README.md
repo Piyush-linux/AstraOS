@@ -57,6 +57,7 @@ __v1__
 - [x] Github: workflow for deploy
 
 __v2__
+- [ ] UI: Social Media
 - [ ] UI: Notificarion/Toast  
 - [ ] UI: Popup Menu 
 - [ ] Event: Power btn 
