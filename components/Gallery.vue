@@ -1,32 +1,59 @@
+<script setup>
+
+const location = ref(null);
+const weather = ref(null);
+let date = new Date();
+let today = `${date.getDate()} . ${date.getMonth()} . ${date.getFullYear()}`;
+
+onMounted(async () => {
+	console.log('fetching ...')
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(success, error);
+	} else {
+		console.log("Geolocation not supported");
+	}
+
+	async function success(position) {
+		const latitude = position.coords.latitude;
+		const longitude = position.coords.longitude;
+		// location.value = { latitude, longitude };
+		console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+
+		// Make API call to OpenWeatherMap
+		try {
+			let raw = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=256156d28a4575e841a3cce2fdfc060b&units=metric`);
+			let data = await raw.json();
+			location.value = data;
+			console.log(data)
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	function error() {
+		console.log("Unable to retrieve your location");
+	}
+
+})
+
+
+
+</script>
 <template>
 	<div class="w-full h-full opacity-[.7]">
 		<div class="flex flex-col items-center h-full p-8 rounded-md w-60 sm:px-12 bg-gray-900 text-gray-100">
 			<div class="text-center">
-				<h2 class="text-xl font-semibold">Dubai</h2>
-				<p class="text-sm text-gray-400">July 29</p>
+				<h2 class="text-xl font-semibold"> {{ location?.name || "City" }}, {{ location?.sys.country || "Country" }} </h2>
+				<p class="text-sm text-gray-400"> {{ today }} </p>
 			</div>
-			<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-				class="w-32 h-32 p-6 text-yellow-400 fill-current">
-				<path
-					d="M256,104c-83.813,0-152,68.187-152,152s68.187,152,152,152,152-68.187,152-152S339.813,104,256,104Zm0,272A120,120,0,1,1,376,256,120.136,120.136,0,0,1,256,376Z">
-				</path>
-				<rect width="32" height="48" x="240" y="16"></rect>
-				<rect width="32" height="48" x="240" y="448"></rect>
-				<rect width="48" height="32" x="448" y="240"></rect>
-				<rect width="48" height="32" x="16" y="240"></rect>
-				<rect width="32" height="45.255" x="400" y="393.373" transform="rotate(-45 416 416)"></rect>
-				<rect width="32.001" height="45.255" x="80" y="73.373" transform="rotate(-45 96 96)"></rect>
-				<rect width="45.255" height="32" x="73.373" y="400" transform="rotate(-45.001 96.002 416.003)"></rect>
-				<rect width="45.255" height="32.001" x="393.373" y="80" transform="rotate(-45 416 96)"></rect>
-			</svg> -->
-			
+
 			<Icon name="ph:cloud-fog-fill" color="#E1AFD1" class="w-32 h-32 p-6 text-yellow-400 fill-current" />
 			<!-- <Icon name="material-symbols:weather-snowy" color="#E1AFD1" class="w-32 h-32 p-6 text-yellow-400 fill-current" /> -->
 			<!-- <Icon name="ph:sun-dim-fill" color="#E1AFD1" class="w-32 h-32 p-6 text-yellow-400 fill-current" /> -->
-			<div class="mb-2 text-3xl font-semibold">32°
-				<span class="mx-1 font-normal">/</span>20°
+			<div class="mb-2 text-xl font-semibold"> {{ location?.main.temp_max || "Max" }}
+				<span class="mx-1 font-normal">/</span> {{ location?.main.temp_min || "Min" }}
 			</div>
-			<p class="text-gray-400">Partly cloudy</p>
+			<p class="text-gray-400">{{ location?.weather[0].main || "Condition" }}</p>
 		</div>
 	</div>
 </template>

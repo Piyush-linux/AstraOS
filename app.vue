@@ -106,21 +106,6 @@ const tour = useShepherd({
 
 onMounted(() => {
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      console.log("Geolocation not supported");
-    }
-    console.log(navigator)
-
-let pos = "";
-
-function showPosition(position) {
-  pos = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
-  console.log(pos)
-}
-
     // Tour-Power
     tour.addStep({
         id: 'example-step',
