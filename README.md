@@ -55,15 +55,19 @@ __v1__
 - [x] UI: Glassmorphism
 - [x] UI: Gallery Comp
 - [x] Github: workflow for deploy
-
++ v1.1
+	- [ ] weather APi using User Current location @Geo-location API
 __v2__
-- [ ] UI: Social Media
+- [ ] UI: Social Media in Profile Card
 - [ ] UI: Notificarion/Toast  
 - [ ] UI: Popup Menu 
 - [ ] Event: Power btn 
 - [ ] Event: Wifi btn
 - [ ] Event: Bluetooth btn
 - [ ] Event: Application btn
+
+__v3__
+
 
 
 ## Contributing 🌱
