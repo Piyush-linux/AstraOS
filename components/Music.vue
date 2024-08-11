@@ -41,47 +41,51 @@ let play = () => {
 
 let songInfo = ref({
     id: 1,
-    name: "WFM",
-    author: "Zensky",
-    cover: "music/MU.jpg",
-    music: "/music/MU.mp3",
+    name: "Mamushi",
+    author: "Megan Thee Stallion",
+    cover: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/MU.jpg",
+    music: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/MU.mp3",
 })
 
 let songList = [{
     id: 1,
-    name: "WFM",
-    author: "Zensky",
-    cover: "music/MU.jpg",
-    music: "/music/MU.mp3",
+    name: "Mamushi",
+    author: "Megan Thee Stallion",
+    cover: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/MU.jpg",
+    music: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/MU.mp3",
 }, {
     id: 2,
-    name: "WFM",
-    author: "Zensky",
-    cover: "music/MU.jpg",
-    music: "/music/MU.mp3",
+    name: "Shinunoga E-Wa",
+    author: "Fujii Kaze",
+    cover: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/SEW.jpg",
+    music: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/SEW.mp3",
 }, {
     id: 3,
-    name: "WFM",
-    author: "Zensky",
-    cover: "music/MU.jpg",
-    music: "/music/MU.mp3",
+    name: "Stay With Me",
+    author: "Miki Matsubara",
+    cover: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/SWM.jpg",
+    music: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/SWM.mp3",
 }]
 
 let PlayNext = () => {
+
     switch (songInfo.value.id) {
         case 1:
-        songInfo.value.id = 2;
+        songInfo.value = songList[1];
             break;
         case 2:
-        songInfo.value.id = 3;
+        songInfo.value = songList[2];
             break;
         case 3:
-        songInfo.value.id = 1;
+        songInfo.value = songList[0];
             break;
         default:
             break;
     }
-    console.log(songInfo.value.id)
+    song.value.load()
+    // song.value.resetPlayer()
+    songState.value = false;
+    console.log(songInfo.value.music)
 }
 
 
@@ -93,12 +97,12 @@ let PlayNext = () => {
         <div class="flex justify-center items-center h-fit">
             <div class="bg-gray-900 p-8 rounded-lg shadow-md w-80">
                 <!-- Album Cover -->
-                <img v-if="songInfo.id == 1" src="@/assets/music/MU.jpg" alt="idk - Highvyn, Taylor Shin"
+                <img :src="songInfo.cover" alt="idk - Highvyn, Taylor Shin"
                     class="w-full h-[15vh] mx-auto rounded-lg object-cover mb-4 border-2 border-gray-500">
-                <img v-if="songInfo.id == 2" src="@/assets/music/SEW.jpg" alt="idk - Highvyn, Taylor Shin"
+                <!-- <img v-if="songInfo.id == 2" src="@/assets/music/SEW.jpg" alt="idk - Highvyn, Taylor Shin"
                     class="w-full h-[15vh] mx-auto rounded-lg object-cover mb-4 border-2 border-gray-500">
                 <img v-if="songInfo.id == 3" src="@/assets/music/SWM.jpg" alt="idk - Highvyn, Taylor Shin"
-                    class="w-full h-[15vh] mx-auto rounded-lg object-cover mb-4 border-2 border-gray-500">
+                    class="w-full h-[15vh] mx-auto rounded-lg object-cover mb-4 border-2 border-gray-500"> -->
                 <!-- Song Title -->
                 <h2 class="text-xl font-semibold text-center text-[#FFE6E6]">{{ songInfo.name }}</h2>
                 <!-- Artist Name -->
@@ -135,18 +139,22 @@ let PlayNext = () => {
                     <span>3:53</span>
                 </div>
                 <!-- /// -->
-                <audio v-if="songInfo.id == 1" controls id="song" ref="song" class="hidden">
-                    <source src="@/assets/music/MU.mp3" type="audio/mpeg">
+                <audio controls id="song" ref="song" class="hidden">
+                    <source :src="songInfo.music" type="audio/mpeg">
+                    Your browser does not support the audio tag.
+                </audio>
+                <!-- <audio v-if="songInfo.id == 1" controls id="song" ref="song" class="hidden">
+                    <source src="https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/MU.mp3" type="audio/mpeg">
                     Your browser does not support the audio tag.
                 </audio>
                 <audio v-if="songInfo.id == 2" controls id="song" ref="song" class="hidden">
-                    <source src="@/assets/music/SEW.mp3" type="audio/mpeg">
+                    <source src="https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/SEW.mp3" type="audio/mpeg">
                     Your browser does not support the audio tag.
                 </audio>
                 <audio v-if="songInfo.id == 3" controls id="song" ref="song" class="hidden">
-                    <source src="@/assets/music/SWM.mp3" type="audio/mpeg">
+                    <source src="https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/SWM.mp3" type="audio/mpeg">
                     Your browser does not support the audio tag.
-                </audio>
+                </audio> -->
             </div>
         </div>
     </div>
