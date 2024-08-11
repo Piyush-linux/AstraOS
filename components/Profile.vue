@@ -5,8 +5,13 @@
                 <div class="relative mx-auto w-36 rounded-full">
                     <img class="mx-auto h-auto w-full rounded-full" src="/profile.png" alt="" />
                 </div>
-                <h1 class="my-1 text-center text-2xl font-bold leading-8 text-[#E1AFD1]">Piyush</h1>
+                <h1 class="my-1 text-center text-2xl font-bold leading-8 text-[#E1AFD1]">Shubham</h1>
                 <p class="text-center text-sm leading-6 text-[#FFE6E6] hover:text-gray-600 font-bold">Fullstack Web Developer <br/> Anime . Cat . Music</p>
+                <div class="flex justify-evenly w-1/2">
+                    <Icon name="mdi:github" color="#E1AFD1" class="text-3xl" />
+                    <Icon name="mdi:mastodon" color="#E1AFD1" class="text-3xl" />
+                    <Icon name="mdi:gmail" color="#E1AFD1" class="text-3xl" />
+                </div>
             </div>
         </div>
     </div>
