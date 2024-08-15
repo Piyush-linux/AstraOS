@@ -3,32 +3,35 @@
 let progress = ref(null)
 let song = ref(null)
 let ctrlIcon = ref(null)
+let timer = ref(0)
 let songState = ref(false)
 // const counter = useState ('counter', () => Math.round(Math.random() * 1000))
 
 
 
-onMounted(() => {
-    // console.log(song.value)
-    song.value.onloadedmetadata = function () {
+onUpdated(() => {
+    song.value.onloadedmetadata = () => {
         progress.value.max = song.value.duration;
         progress.value.value = song.value.currentTime
     }
 
-    if (songState.value) {
+    if (songState.value == true) {
+        console.log("---2")
         song.value.play()
+        
         setInterval(() => {
             progress.value.value = song.value.currentTime;
         }, 500);
-    }
 
-    progress.value.onChange = function () {
-        song.value.play();
-        song.value.currentTime = progress.value.value;
-        songState = !songState;
+        // setInterval(() => {
+        //     console.log("---timer")
+        //     timer.value = timer.value + 1;
+        // }, 1000);
     }
 
 })
+
+
 
 let play = () => {
     if (songState.value) {
@@ -45,6 +48,7 @@ let songInfo = ref({
     author: "Megan Thee Stallion",
     cover: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/MU.jpg",
     music: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/MU.mp3",
+    max:"2:37"
 })
 
 let songList = [{
@@ -53,31 +57,34 @@ let songList = [{
     author: "Megan Thee Stallion",
     cover: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/MU.jpg",
     music: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/MU.mp3",
+    max:"2:37"
 }, {
     id: 2,
     name: "Shinunoga E-Wa",
     author: "Fujii Kaze",
     cover: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/SEW.jpg",
     music: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/SEW.mp3",
+    max:"3:05"
 }, {
     id: 3,
     name: "Stay With Me",
     author: "Miki Matsubara",
     cover: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/SWM.jpg",
     music: "https://raw.githubusercontent.com/Piyush-linux/AstraOS/master/assets/music/SWM.mp3",
+    max:""
 }]
 
 let PlayNext = () => {
 
     switch (songInfo.value.id) {
         case 1:
-        songInfo.value = songList[1];
+            songInfo.value = songList[1];
             break;
         case 2:
-        songInfo.value = songList[2];
+            songInfo.value = songList[2];
             break;
         case 3:
-        songInfo.value = songList[0];
+            songInfo.value = songList[0];
             break;
         default:
             break;
@@ -122,7 +129,8 @@ let PlayNext = () => {
                             class="text-4xl text-gray-600" ref="ctrlIcon" id="ctrlIcon" />
                     </button>
                     <!-- next -->
-                    <button @click="PlayNext()" class="p-3 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none">
+                    <button @click="PlayNext()"
+                        class="p-3 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none">
                         <Icon name="material-symbols:skip-next-rounded" color="#151515"
                             class="text-2xl text-gray-600" />
                     </button>
@@ -131,12 +139,12 @@ let PlayNext = () => {
                 <!-- <div class="mt-6 bg-gray-200 h-2 rounded-full"> -->
                 <!-- <div class="bg-teal-500 h-2 rounded-full w-1/2"></div> -->
                 <div class="flex justify-center">
-                    <input type="range" value="0" id="progress" ref="progress" class=" mt-6">
+                    <input type="range" value="0" id="progress" ref="progress" class="mt-6 bg-purple-300">
                 </div>
                 <!-- </div> -->
                 <div class="flex justify-between mt-2 text-sm text-gray-600">
-                    <span>1:57</span>
-                    <span>3:53</span>
+                    <span> {{ timer }} </span>
+                    <span> {{ songInfo.max }} </span>
                 </div>
                 <!-- /// -->
                 <audio controls id="song" ref="song" class="hidden">
@@ -159,3 +167,23 @@ let PlayNext = () => {
         </div>
     </div>
 </template>
+
+
+<style>
+#progress {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 7px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: black;
+    /* width: 100%; */
+    /* height: 7px; */
+    /* border-radius: 3px; */
+    cursor: pointer;
+}
+</style>

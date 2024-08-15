@@ -60,6 +60,7 @@
                 <!-- <Terminal/> -->
                 <div class=" w-full h-full " ref="comp_gallery">
                     <Gallery/>
+                    <Panel/>
                 </div>
             </div>
         </div>
@@ -105,6 +106,36 @@ const tour = useShepherd({
     const comp_gallery = ref(null);
 
 onMounted(() => {
+
+    // Menu-location
+    tour.addStep({
+        id: 'example-step',
+        text: '🌍 Please Share Your Location for the Weather Forecast',
+        attachTo: {
+            element: btn_power.value ,
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Next',
+            classes: 'step1-btn1',
+            action: tour.next
+        }]
+    });
+
+    // ESC
+    tour.addStep({
+        id: 'example-step',
+        text: 'Skip these steps and explore yourself, press the ESC key at any time.',
+        attachTo: {
+            element: btn_power.value ,
+        },
+        classes: 'step1',
+        buttons: [{
+            text: 'Next',
+            classes: 'step1-btn1',
+            action: tour.next
+        }]
+    });
 
     // Tour-Power
     tour.addStep({

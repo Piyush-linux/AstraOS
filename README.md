@@ -8,6 +8,8 @@
 
 ### About
 "Welcome to Astra OS, a next-generation web UI inspired by the power and versatility of Linux distributions. Experience seamless navigation, sleek design, and unparalleled functionality. With Astra OS, embark on a journey of innovation, where every click opens doors to new horizons. Whether you're a seasoned tech enthusiast or a curious explorer, Astra OS is your gateway to a world of limitless possibilities. Elevate your online experience and discover the future of web interfaces with Astra OS."
+- Geological API
+- Animation
 
 ### Inpiration
 - __UI Inspiration__ : https://i.pinimg.com/736x/87/3b/b7/873bb76870c5831b3db734cfbf7cf165.jpg
@@ -56,7 +58,9 @@ __v1__
 - [x] UI: Gallery Comp
 - [x] Github: workflow for deploy
 + v1.1
-	- [ ] weather APi using User Current location @Geo-location API
+	- [x] weather APi using User Current location @Geo-location API
+	- [ ] Skip Dialog Modal Option for New Comer 
+
 __v2__
 - [ ] UI: Social Media in Profile Card
 - [ ] UI: Notificarion/Toast  
